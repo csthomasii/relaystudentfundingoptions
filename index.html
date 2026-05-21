@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Aid Guide for Relay GSE Students</title>
+<style>
+:root {
+  --prussian: #1D3557;
+  --pacific: #2C49A4;
+  --sea: #6D97C9;
+  --crimson: #B30838;
+  --imperial-red: #E63946;
+  --sea-foam: #A8DADC;
+  --orange: #FFAC5F;
+  --fog: #F7F8F9;
+  --dark-gray: #898A8D;
+  --white: #ffffff;
+  --black: #000000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', 'Helvetica Neue', Helvetica, Calibri, Arial, sans-serif;
+  color: var(--prussian);
+  background: var(--fog);
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* ===== LAYOUT ===== */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 280px;
+  min-width: 280px;
+  background: var(--prussian);
+  color: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 24px 0;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-logo {
+  padding: 0 24px 20px;
+  border-bottom: 2px solid var(--crimson);
+  margin-bottom: 16px;
+}
+
+.sidebar-logo h2 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+}
+
+.sidebar-logo h2 span { color: var(--crimson); }
+
+.sidebar-logo p {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--sea);
+  margin-top: 2px;
+}
+
+.sidebar nav { padding: 0 16px; }
+
+.sidebar nav a {
+  display: block;
+  padding: 8px 12px;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 13.5px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  margin-bottom: 2px;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+}
+
+.sidebar nav .nav-section {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--sea);
+  padding: 16px 12px 6px;
+  font-weight: 700;
+}
+
+.main-content {
+  margin-left: 280px;
+  flex: 1;
+  min-width: 0;
+}
+
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: var(--prussian);
+  color: var(--white);
+  padding: 12px 20px;
+  z-index: 200;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hamburger {
+  background: none; border: none; color: var(--white);
+  font-size: 24px; cursor: pointer;
+}
+
+/* ===== HERO ===== */
+.hero {
+  background: linear-gradient(135deg, var(--prussian) 0%, var(--pacific) 100%);
+  color: var(--white);
+  padding: 72px 48px 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: rgba(168,218,220,0.08);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -30%; left: -10%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: rgba(179,8,56,0.06);
+}
+
+.hero h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  position: relative; z-index: 1;
+}
+
+.hero p {
+  font-size: 17px;
+  opacity: 0.9;
+  max-width: 680px;
+  position: relative; z-index: 1;
+  line-height: 1.7;
+}
+
+.hero .subtitle {
+  display: inline-block;
+  background: var(--crimson);
+  padding: 4px 14px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+
+/* ===== CONTENT SECTIONS ===== */
+.content-area { padding: 40px 48px 80px; max-width: 1100px; }
+
+section { margin-bottom: 48px; }
+
+section > h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--prussian);
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--crimson);
+  margin-bottom: 24px;
+}
+
+section > h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--pacific);
+  margin: 28px 0 12px;
+}
+
+p { margin-bottom: 14px; }
+
+/* ===== NOTICE BANNER ===== */
+.notice {
+  background: linear-gradient(135deg, #FFF3E0, #FFF8E1);
+  border-left: 4px solid var(--orange);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 28px;
+  font-size: 14px;
+}
+
+.notice strong { color: var(--crimson); }
+
+.disclaimer {
+  background: var(--fog);
+  border: 1px solid #ddd;
+  border-left: 4px solid var(--imperial-red);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 28px;
+  font-size: 13px;
+  color: var(--dark-gray);
+}
+
+/* ===== PROGRAM CARDS ===== */
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.program-card {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.program-card:hover { box-shadow: 0 4px 16px rgba(29,53,87,0.1); }
+
+.program-card-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.program-card-header h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--prussian);
+  flex: 1;
+}
+
+.program-card-header .amount-badge {
+  background: var(--sea-foam);
+  color: var(--prussian);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0 12px;
+}
+
+.program-card-header .toggle-icon {
+  font-size: 20px;
+  color: var(--pacific);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.program-card.open .toggle-icon { transform: rotate(180deg); }
+
+.program-card-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid #eee;
+}
+
+.program-card.open .program-card-body { display: block; }
+
+.program-card-body .detail-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 8px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+}
+
+.program-card-body .detail-row:last-child { border-bottom: none; }
+
+.detail-label {
+  font-weight: 700;
+  color: var(--pacific);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.relay-note {
+  background: linear-gradient(135deg, #EBF5FB, #E8F8F5);
+  border-left: 3px solid var(--sea);
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.relay-note strong { color: var(--pacific); }
+
+/* ===== STATE SECTIONS ===== */
+.state-accordion {
+  background: var(--white);
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.state-accordion-header {
+  padding: 16px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+  background: var(--white);
+  transition: background 0.2s;
+}
+
+.state-accordion-header:hover { background: var(--fog); }
+
+.state-accordion-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--prussian);
+  margin: 0;
+}
+
+.state-accordion-header .relay-location {
+  font-size: 12px;
+  color: var(--sea);
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.state-accordion-header .chevron {
+  font-size: 20px;
+  color: var(--pacific);
+  transition: transform 0.3s;
+}
+
+.state-accordion.open .chevron { transform: rotate(180deg); }
+
+.state-accordion-body {
+  display: none;
+  padding: 0 20px 20px;
+  border-top: 1px solid #eee;
+}
+
+.state-accordion.open .state-accordion-body { display: block; }
+
+/* ===== QUICK REFERENCE TABLE ===== */
+.quick-ref {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin: 16px 0;
+}
+
+.quick-ref th {
+  background: var(--prussian);
+  color: var(--white);
+  padding: 10px 14px;
+  text-align: left;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.quick-ref td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.quick-ref tr:nth-child(even) { background: var(--fog); }
+
+.quick-ref .prog-name { font-weight: 700; color: var(--prussian); }
+.quick-ref .prog-name a { color: var(--prussian); text-decoration: none; border-bottom: 1px dashed var(--pacific); transition: color 0.2s, border-color 0.2s; }
+.quick-ref .prog-name a:hover { color: var(--pacific); border-bottom-style: solid; }
+.program-card-header h4 a:hover { color: var(--pacific) !important; border-bottom-style: solid !important; }
+
+/* ===== TAGS ===== */
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.tag-grant { background: #E8F5E9; color: #2E7D32; }
+.tag-forgiveness { background: #E3F2FD; color: #1565C0; }
+.tag-loan { background: #FFF3E0; color: #E65100; }
+.tag-tax { background: #F3E5F5; color: #7B1FA2; }
+.tag-scholarship { background: #FCE4EC; color: #C62828; }
+.tag-waiver { background: #E0F7FA; color: #00695C; }
+.tag-stipend { background: #FFF9C4; color: #F57F17; }
+
+/* ===== STACKING STRATEGY ===== */
+.stack-diagram {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.stack-step {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--white);
+  border-radius: 8px;
+  border-left: 4px solid var(--pacific);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.stack-step .step-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--pacific);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.stack-step .step-text { font-size: 14px; }
+.stack-step .step-text strong { color: var(--prussian); }
+
+.stack-connector {
+  text-align: center;
+  color: var(--dark-gray);
+  font-size: 18px;
+}
+
+/* ===== LANDSCAPE TABLE ===== */
+.landscape-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: var(--white);
+}
+
+.landscape-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+.landscape-table th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--prussian);
+  color: var(--white);
+  padding: 10px 12px;
+  text-align: center;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  white-space: nowrap;
+  border-right: 1px solid rgba(255,255,255,0.15);
+}
+
+.landscape-table th.loc-header {
+  text-align: left;
+  min-width: 150px;
+  position: sticky;
+  left: 0;
+  z-index: 3;
+}
+
+.landscape-table th.group-header {
+  background: var(--pacific);
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+}
+
+.landscape-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  border-right: 1px solid #f0f0f0;
+  text-align: center;
+  vertical-align: top;
+  min-width: 110px;
+}
+
+.landscape-table td.loc-cell {
+  text-align: left;
+  font-weight: 700;
+  color: var(--prussian);
+  background: var(--white);
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  border-right: 2px solid var(--sea);
+  min-width: 150px;
+  white-space: nowrap;
+}
+
+.landscape-table tr:nth-child(even) td { background: var(--fog); }
+.landscape-table tr:nth-child(even) td.loc-cell { background: var(--fog); }
+.landscape-table tr:hover td { background: #EBF5FB; }
+.landscape-table tr:hover td.loc-cell { background: #EBF5FB; }
+
+.landscape-table .has-program {
+  color: #2E7D32;
+  font-weight: 600;
+  font-size: 11.5px;
+}
+
+.landscape-table .no-program {
+  color: #ccc;
+  font-size: 14px;
+}
+
+.landscape-table .federal-col { border-right: 1px solid #e0e0e0; }
+.landscape-table .divider-col { border-right: 2px solid var(--crimson) !important; }
+
+@media print {
+  .landscape-wrapper { overflow: visible; border: none; }
+  .landscape-table { font-size: 9px; }
+  .landscape-table td, .landscape-table th { padding: 4px 6px; min-width: auto; }
+  .landscape-table td.loc-cell, .landscape-table th.loc-header { position: static; }
+  .landscape-section { page-break-before: always; }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--prussian);
+  color: rgba(255,255,255,0.7);
+  padding: 32px 48px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.footer strong { color: var(--white); }
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  .sidebar, .mobile-header { display: none !important; }
+  .main-content { margin-left: 0 !important; }
+  .hero { padding: 24px; background: var(--prussian) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .content-area { padding: 20px; }
+  .program-card-body { display: block !important; }
+  .state-accordion-body { display: block !important; }
+  .program-card, .state-accordion { break-inside: avoid; }
+  .toggle-icon, .chevron { display: none !important; }
+  body { font-size: 12px; }
+  section > h2 { font-size: 20px; }
+  .program-card-header h4 { font-size: 14px; }
+  .hero h1 { font-size: 24px; }
+  .quick-ref th, .quick-ref td { padding: 6px 8px; font-size: 11px; }
+  @page { margin: 0.75in; }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .sidebar { transform: translateX(-100%); }
+  .sidebar.open { transform: translateX(0); }
+  .mobile-header { display: flex; }
+  .main-content { margin-left: 0; padding-top: 56px; }
+  .hero { padding: 40px 24px 32px; }
+  .hero h1 { font-size: 26px; }
+  .content-area { padding: 24px 20px 60px; }
+  .program-card-body .detail-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR NAVIGATION -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-logo">
+    <h2>RELAY<span>/</span>GSE</h2>
+    <p>Graduate School of Education</p>
+  </div>
+  <nav>
+    <div class="nav-section">Guide</div>
+    <a href="#top">Overview</a>
+    <a href="#how-to-use">How to Use This Guide</a>
+    <a href="#landscape">Funding At a Glance</a>
+    <div class="nav-section">Federal Programs</div>
+    <a href="#federal-during">During Enrollment</a>
+    <a href="#federal-after">After Graduation</a>
+    <div class="nav-section">State Programs</div>
+    <a href="#state-colorado">Colorado</a>
+    <a href="#state-connecticut">Connecticut</a>
+    <a href="#state-delaware">Delaware</a>
+    <a href="#state-georgia">Georgia</a>
+    <a href="#state-illinois">Illinois</a>
+    <a href="#state-new-jersey">New Jersey</a>
+    <a href="#state-new-york">New York</a>
+    <a href="#state-rhode-island">Rhode Island</a>
+    <a href="#state-tennessee">Tennessee</a>
+    <a href="#state-texas">Texas</a>
+    <a href="#state-dc">Washington, DC</a>
+    <div class="nav-section">Strategies</div>
+    <a href="#stacking">Stacking Programs</a>
+    <a href="#scenarios">Student Scenarios</a>
+    <a href="#additional">Additional Resources</a>
+    <a href="#disclaimer">Disclaimer</a>
+  </nav>
+</div>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+  <button class="hamburger" onclick="document.getElementById('sidebar').classList.toggle('open')">&#9776;</button>
+  <span style="font-weight:700;letter-spacing:1px;font-size:14px;">RELAY<span style="color:var(--crimson);">/</span>GSE Financial Aid Guide</span>
+  <span></span>
+</div>
+
+<div class="main-content">
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="subtitle">Financial Aid Resource</div>
+  <h1>Financial Aid, Loan Forgiveness &amp; Tuition<br>Offset Options for Relay GSE Students</h1>
+  <p>A comprehensive guide to reducing the cost of your certification and master&rsquo;s degree program at Relay Graduate School of Education. Covers federal programs and state-specific programs across all Relay locations.</p>
+</div>
+
+<div class="content-area">
+
+<!-- HOW TO USE -->
+<section id="how-to-use">
+  <h2>How to Use This Guide</h2>
+  <p>This guide is designed specifically for students enrolled in&mdash;or considering enrollment in&mdash;teacher preparation programs at Relay Graduate School of Education, including Master of Arts in Teaching (MAT) programs, the Relay Teaching Residency, Advanced Certificate in Special Education, and Alternative Certification programs.</p>
+  <p>Programs are organized into two categories: <strong>federal programs</strong> available to Relay students nationwide, and <strong>state-specific programs</strong> for each state where Relay operates. Within each category, we distinguish between programs you can access <em>during enrollment</em> and those available <em>after graduation</em> once you are teaching.</p>
+
+  <div class="notice">
+    <strong>Important:</strong> Only programs available to students at Relay Graduate School of Education are included. Programs that require enrollment at a different institution have been excluded. All programs listed are compatible with Relay&rsquo;s accredited, nonprofit status as an institution of higher education.
+  </div>
+
+  <div class="disclaimer">
+    <strong>Compiled May 2026 &bull; AI-Generated Resource</strong><br>
+    Program availability, funding levels, and eligibility requirements change frequently. Many state programs depend on annual legislative appropriations. Federal student loan policy is in active flux&mdash;PSLF has new rules effective July 1, 2026, and IDR plans are being restructured through 2028. <strong>Always verify current status with the administering agency and Relay&rsquo;s financial aid office before making financial decisions.</strong>
+  </div>
+</section>
+
+<!-- LANDSCAPE FUNDING TABLE -->
+<section id="landscape" class="landscape-section">
+  <h2>Funding At a Glance: All Locations</h2>
+  <p>This table provides a complete view of every funding source available to Relay students by location. Federal programs (blue headers) are available at all locations. State-specific programs (red headers) vary. Scroll horizontally to see all columns, or save/print in landscape orientation for the full view.</p>
+
+  <div class="landscape-wrapper">
+    <table class="landscape-table">
+      <thead>
+        <tr>
+          <th class="loc-header" rowspan="2">Relay Location</th>
+          <th class="group-header" colspan="4" style="background:var(--pacific);">&#9654; Federal: During Enrollment</th>
+          <th class="group-header divider-col" colspan="1" style="background:var(--sea);">State: During</th>
+          <th class="group-header" colspan="3" style="background:var(--pacific);">&#9654; Federal: After Graduation</th>
+          <th class="group-header" colspan="1" style="background:var(--crimson);">State: After Graduation</th>
+        </tr>
+        <tr>
+          <th>TEACH Grant</th>
+          <th>AmeriCorps<br>(2 Awards)</th>
+          <th>Employer<br>Tuition Asst.</th>
+          <th>Lifetime<br>Learning Cr.</th>
+          <th class="divider-col">State-Specific<br>Programs</th>
+          <th>Teacher Loan<br>Forgiveness</th>
+          <th>TLF<br>Forbearance</th>
+          <th>PSLF</th>
+          <th>State-Specific<br>Programs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- COLORADO -->
+        <tr>
+          <td class="loc-cell">Relay Denver<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">Colorado</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="has-program divider-col" style="text-align:left;min-width:180px;">ERR Program: up to $10,000<br>TEACH CO Scholarship: $1,000<br>Rural Stipend: $4,000</td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">CO Educator Loan Forgiveness: up to $25,000</td>
+        </tr>
+        <!-- CONNECTICUT -->
+        <tr>
+          <td class="loc-cell">Relay Connecticut</td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="has-program divider-col" style="text-align:left;min-width:180px;">MTIP Grant: up to $10,000 <span style="font-size:10px;color:var(--dark-gray);">(minority students)</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">MTIP Loan Reimb.: up to $10,000<br>Alliance District Loan Subsidy</td>
+        </tr>
+        <!-- DELAWARE -->
+        <tr>
+          <td class="loc-cell">Relay Delaware</td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span style="color:var(--dark-gray);font-size:11px;">Tuition reimb. for emergency cert teachers (varies)</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">DE Educator Loan Repayment (varies)</td>
+        </tr>
+        <!-- GEORGIA -->
+        <tr>
+          <td class="loc-cell">Relay Atlanta<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">Georgia</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span style="color:var(--dark-gray);font-size:11px;">GaDOE Endorsement Grants (in-service)</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">HB 32 Tax Credit: $15,000 <span style="font-size:10px;color:var(--dark-gray);">(5 yrs &times; $3K at eligible schools)</span></td>
+        </tr>
+        <!-- ILLINOIS -->
+        <tr>
+          <td class="loc-cell">Relay Chicago<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">Illinois</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span class="no-program" style="font-size:11px;color:var(--dark-gray);">None confirmed for Relay</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">IL Teachers Loan Repayment <span style="font-size:10px;color:var(--dark-gray);">(supplements federal TLF)</span></td>
+        </tr>
+        <!-- NEW JERSEY -->
+        <tr>
+          <td class="loc-cell">Relay Camden<br>Relay Newark<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">New Jersey</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span style="color:var(--dark-gray);font-size:11px;">Student-Teacher Stipend Pilot (varies)</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">NJ TLRP: up to $20,000 <span style="font-size:10px;color:var(--dark-gray);">($5K/yr &times; 4 yrs, high-need fields)</span></td>
+        </tr>
+        <!-- NEW YORK -->
+        <tr>
+          <td class="loc-cell">Relay New York<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">New York</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;">NYS TAP: up to $5,665/yr <span style="font-size:10px;color:var(--dark-gray);">(need-based, check eligibility)</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">NYS TLF: up to $20,000<br>Jose P. (NYC): up to $24,000<br>Get on Your Feet: 2 yrs payments</td>
+        </tr>
+        <!-- RHODE ISLAND -->
+        <tr>
+          <td class="loc-cell">Rhode Island<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">via Relay Connecticut</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span class="no-program" style="font-size:11px;color:var(--dark-gray);">None during enrollment</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">Wavemaker Fellowship: $4K&ndash;$24K <span style="font-size:10px;color:var(--dark-gray);">(tax credit, 4 yrs)</span></td>
+        </tr>
+        <!-- TENNESSEE -->
+        <tr>
+          <td class="loc-cell">Relay Memphis<br>Relay Nashville<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">Tennessee</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span class="no-program" style="font-size:11px;color:var(--dark-gray);">None available for Relay</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">TN Math/Science Forgiveness: up to $10,000 <span style="font-size:10px;color:var(--dark-gray);">(if adding endorsement)</span></td>
+        </tr>
+        <!-- TEXAS -->
+        <tr>
+          <td class="loc-cell">Relay Houston<br>Relay Dallas-FW<br>Relay San Antonio<br><span style="font-weight:400;color:var(--dark-gray);font-size:11px;">Texas</span></td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="has-program divider-col" style="text-align:left;min-width:180px;">District Grow-Your-Own (varies)<br>Veterans Test Reimb.</td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program" style="text-align:left;min-width:180px;">Teach for Texas: up to $35,000 <span style="font-size:10px;color:var(--dark-gray);">($7K/yr &times; 5 yrs)</span><br>Teacher Incentive Allotment <span style="font-size:10px;color:var(--dark-gray);">(salary supplement)</span></td>
+        </tr>
+        <!-- DC -->
+        <tr>
+          <td class="loc-cell">Relay Washington DC</td>
+          <td class="has-program">$8,000</td>
+          <td class="has-program">~$14,790</td>
+          <td class="has-program">Up to $10,500</td>
+          <td class="has-program">$4,000</td>
+          <td class="divider-col" style="text-align:left;min-width:180px;"><span class="no-program" style="font-size:11px;color:var(--dark-gray);">None during enrollment</span></td>
+          <td class="has-program">Up to $17,500</td>
+          <td class="has-program">&#10003;</td>
+          <td class="has-program">&#10003;</td>
+          <td style="text-align:left;min-width:180px;"><span style="color:var(--dark-gray);font-size:11px;">Federal programs only (PSLF via DC Gov&rsquo;t)</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:12px;color:var(--dark-gray);">
+    <span><strong style="color:var(--pacific);">Blue headers</strong> = Federal programs (available at all locations)</span>
+    <span><strong style="color:var(--crimson);">Red header</strong> = State-specific programs (vary by location)</span>
+    <span>&#10003; = Available &nbsp;|&nbsp; Employer Tuition Asst. = $5,250/yr &times; 2 yrs, if district offers it</span>
+  </div>
+  <p style="font-size:12px;color:var(--dark-gray);margin-top:8px;"><strong>Tip:</strong> To print this table in landscape, use your browser&rsquo;s print dialog (Ctrl+P / Cmd+P), set orientation to Landscape, and select &ldquo;Save as PDF.&rdquo; All columns will be visible.</p>
+</section>
+
+<!-- FEDERAL - DURING ENROLLMENT -->
+<section id="federal-during">
+  <h2>Federal Programs: During Enrollment</h2>
+  <p>These programs can help reduce costs while you are actively enrolled at Relay.</p>
+
+  <div class="program-grid">
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/understand-aid/types/grants/teach" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">TEACH Grant</a></h4>
+        <span class="amount-badge">Up to $4,000/yr</span>
+        <span class="tag tag-grant">Grant</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to $4,000 per academic year; $8,000 aggregate maximum for graduate students.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Enrolled in a TEACH Grant-eligible program at a participating institution; maintain a 3.25+ cumulative GPA (undergrad GPA applies for your first semester at Relay); complete FAFSA and TEACH Grant counseling annually.</span></div>
+        <div class="detail-row"><span class="detail-label">Obligation</span><span>Agree to teach full-time for at least 4 years in a high-need field at a low-income school within 8 years of program completion. If the obligation is not met, the grant converts to a Direct Unsubsidized Loan with interest.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> Relay participates in the TEACH Grant program. Check with your Relay location&rsquo;s financial aid contact to confirm your specific program&rsquo;s eligibility. This is one of the few federal grants available at the graduate level&mdash;take advantage of it.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/understand-aid/types/loans/subsidized-unsubsidized" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Federal Direct Unsubsidized Loans</a></h4>
+        <span class="amount-badge">Up to $20,500/yr</span>
+        <span class="tag tag-loan">Loan</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to $20,500 per year for graduate students (unsubsidized only).</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Enrolled at least half-time in an eligible program. Complete the FAFSA.</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>Interest accrues during enrollment. Fixed interest rate set annually by Congress. Eligible for PSLF and income-driven repayment after graduation.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> As an accredited nonprofit institution, Relay&rsquo;s programs are eligible for federal financial aid. File your FAFSA as early as possible each year.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/understand-aid/types/loans/plus/grad" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Graduate PLUS Loans</a></h4>
+        <span class="amount-badge">Up to cost of attendance</span>
+        <span class="tag tag-loan">Loan</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to the full cost of attendance minus other financial aid received.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Enrolled at least half-time; no adverse credit history; complete FAFSA.</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>Higher interest rate than Direct Unsubsidized Loans. Requires a credit check. Eligible for PSLF and IDR after consolidation.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> Consider this only after exhausting Direct Unsubsidized Loans and the TEACH Grant. The higher interest rate means this should be a last resort for federal borrowing.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://www.americorps.gov/members-volunteers/segal-americorps-education-award" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Segal AmeriCorps Education Award</a></h4>
+        <span class="amount-badge">Up to ~$14,790 (2 awards)</span>
+        <span class="tag tag-grant">Award</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to ~$7,395 per full-time term (2024&ndash;25 value, tied to max Pell Grant). Students enrolled at Relay for two years who participate in AmeriCorps each year can earn two awards, totaling up to ~$14,790.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Must complete an approved AmeriCorps term of service and enroll in the National Service Trust. Must use each award within 7 years of the service term&rsquo;s completion.</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>Can be applied directly to tuition at Relay or used to repay qualified student loans. Taxable in the year used. AmeriCorps members may also be eligible to defer existing student loan payments during their service period.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> Relay GSE operates its own AmeriCorps program. All Relay students enrolled for two years are eligible to participate in AmeriCorps for each of those years, earning two Segal Education Awards&mdash;up to ~$14,790 total&mdash;that can be applied directly to your Relay tuition. This is one of the most significant funding sources available to you; ask your Relay location about enrollment. If you also previously served with Teach For America, City Year, or another AmeriCorps program, you may have additional unused awards (up to the lifetime cap). Relay is a Title IV institution and accepts Segal Awards. Check your <a href="https://my.americorps.gov" target="_blank" rel="noopener" style="color:var(--pacific);">My AmeriCorps portal</a> for your award status.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://www.irs.gov/newsroom/tax-benefits-for-education-information-center" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Employer Tuition Assistance (IRS Section 127)</a></h4>
+        <span class="amount-badge">Up to $5,250/yr tax-free</span>
+        <span class="tag tag-waiver">Employer Benefit</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to $5,250 per year in tax-free educational assistance from your employer.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Must be employed by a school district or organization that offers an educational assistance plan under IRS Section 127.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> Many Relay students are working as teachers in partner school districts while enrolled. Ask your district&rsquo;s HR department whether they offer tuition reimbursement or educational assistance. Some districts will cover part or all of your Relay tuition as a benefit of employment.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FEDERAL - AFTER GRADUATION -->
+<section id="federal-after">
+  <h2>Federal Programs: After Graduation</h2>
+  <p>These programs help reduce your loan burden once you are teaching. Plan for them now so you can take full advantage after completing your Relay program.</p>
+
+  <div class="program-grid">
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/public-service" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Public Service Loan Forgiveness (PSLF)</a></h4>
+        <span class="amount-badge">Full remaining balance</span>
+        <span class="tag tag-forgiveness">Forgiveness</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Remaining Direct Loan balance forgiven after 120 qualifying monthly payments (minimum 10 years). Tax-free.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Full-time employment at a qualifying public school, government agency, or 501(c)(3) nonprofit. Direct Loans only. Must be on a qualifying repayment plan (income-driven repayment recommended).</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>New PSLF rules effective July 1, 2026 narrow some employer eligibility, but public school teachers remain fully eligible. Cannot use the same teaching years for both PSLF and Teacher Loan Forgiveness, but you can use different years.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> If you plan to teach in a public school or nonprofit school after graduation, PSLF is likely your most valuable forgiveness program. Start submitting your Employment Certification Form (now called the PSLF Form) as soon as you begin teaching. Enroll in an income-driven repayment plan to maximize the benefit.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/teacher" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Teacher Loan Forgiveness (TLF)</a></h4>
+        <span class="amount-badge">Up to $17,500</span>
+        <span class="tag tag-forgiveness">Forgiveness</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to $17,500 for highly qualified math, science, or special education teachers; up to $5,000 for other qualifying teachers.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>5 consecutive years of full-time teaching at a school listed in the Teacher Cancellation Low Income (TCLI) Directory. Direct Subsidized/Unsubsidized or Stafford Loans. Must be &ldquo;highly qualified.&rdquo;</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>Verify your school appears in the TCLI Directory for all 5 years. Cannot use the same service years for both TLF and PSLF. Many Relay graduates qualify for the higher $17,500 amount due to teaching in special education or STEM fields.</span></div>
+        <div class="detail-row"><span class="detail-label">Forbearance</span><span>While working toward TLF eligibility, you can apply for <a href="https://studentaid.gov/articles/teacher-loan-forgiveness-options/#teachers-and-tlf" target="_blank" rel="noopener" style="color:var(--pacific);">TLF loan forbearance</a>, which allows you to pause your federal student loan payments during the qualifying teaching period. This can significantly reduce your out-of-pocket costs in the years immediately following program completion.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> With Relay&rsquo;s focus on high-need fields and partner schools in historically underserved communities, many Relay graduates are well-positioned for the maximum $17,500. Between TLF forbearance (pausing payments while you teach) and eventual forgiveness, your loans may cost you very little out of pocket after graduation. Consider completing TLF first (5 years), then pursuing PSLF with your remaining balance (using subsequent teaching years).</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/perkins" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Federal Perkins Loan Cancellation</a></h4>
+        <span class="amount-badge">Up to 100% over 5 years</span>
+        <span class="tag tag-forgiveness">Cancellation</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to 100% cancellation over 5 years (15%, 15%, 20%, 20%, 30%). Includes interest that accrued during each year.</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Must hold Federal Perkins Loans (no new loans issued after Sept. 30, 2017, but existing loans remain eligible). Full-time teaching at a low-income school, or teaching special education, math, science, foreign languages, bilingual education, or a state-designated shortage area.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> If you have Perkins Loans from a prior degree, do NOT consolidate them into a Direct Consolidation Loan if you plan to pursue Perkins cancellation&mdash;consolidation forfeits this benefit. Contact the school that issued your Perkins Loan to apply for cancellation.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://studentaid.gov/manage-loans/repayment/plans/income-driven" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Income-Driven Repayment (IDR) Forgiveness</a></h4>
+        <span class="amount-badge">Remaining balance after 20&ndash;25 yrs</span>
+        <span class="tag tag-forgiveness">Forgiveness</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Remaining balance forgiven after 20&ndash;25 years of qualifying payments, depending on the plan.</span></div>
+        <div class="detail-row"><span class="detail-label">Key Details</span><span>Payments based on income and family size. The new Repayment Assistance Plan (RAP) launches July 1, 2026. SAVE, PAYE, and ICR plans are being phased out by July 2028. Forgiveness may be taxable after 2025.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> If you qualify for PSLF (10-year forgiveness), that is almost always the better path than waiting 20&ndash;25 years for IDR forgiveness. IDR is most useful as a safety net and for keeping payments low while you build your career.</div>
+      </div>
+    </div>
+
+    <div class="program-card">
+      <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')">
+        <h4><a href="https://www.irs.gov/credits-deductions/individuals/llc" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px dashed var(--pacific);">Lifetime Learning Credit</a></h4>
+        <span class="amount-badge">Up to $2,000/yr</span>
+        <span class="tag tag-tax">Tax Credit</span>
+        <span class="toggle-icon">&#9660;</span>
+      </div>
+      <div class="program-card-body">
+        <div class="detail-row"><span class="detail-label">Amount</span><span>Up to $2,000 per year (20% of the first $10,000 in qualified education expenses).</span></div>
+        <div class="detail-row"><span class="detail-label">Eligibility</span><span>Available for graduate-level tuition expenses. Income limits apply. Claimed on your federal tax return.</span></div>
+        <div class="relay-note"><strong>For Relay students:</strong> You may claim this credit for tuition you pay out of pocket to Relay. It cannot be claimed for expenses covered by the TEACH Grant or other tax-free educational assistance. Consult a tax professional.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATE PROGRAMS -->
+<section id="state-programs">
+  <h2>State-Specific Programs</h2>
+  <p>The following programs are specific to each state where Relay operates. They can often be combined with federal programs (check stacking rules). Click each state to expand and view available programs.</p>
+
+  <!-- COLORADO -->
+  <div class="state-accordion" id="state-colorado">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Colorado</h3><span class="relay-location">Relay Denver</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://cdhe.colorado.gov/colorado-educator-loan-forgiveness" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Colorado Educator Loan Forgiveness Program</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Up to $5,000/yr for up to 5 years</td><td>For licensed CO educators, priority for rural and hard-to-fill positions. Federal loans only. 2026&ndash;27 is the final year; applications open March 1&ndash;April 15, 2026. Competitive&mdash;not all applicants funded. Available to Relay graduates teaching in Colorado.</td></tr>
+          <tr><td class="prog-name"><a href="https://www.cde.state.co.us/educatortalent/errprogram" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Educator Recruitment &amp; Retention (ERR) Program</a></td><td><span class="tag tag-grant">Grant</span></td><td>Up to $10,000 one-time</td><td>For individuals enrolled in a Colorado-approved educator preparation program who are employed as paraprofessionals. Requires 3-year commitment to teach in a shortage area. Relay Denver&rsquo;s programs may qualify&mdash;check with CDE.</td></tr>
+          <tr><td class="prog-name"><a href="https://colorado.teach.org/services/scholarship" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">TEACH Colorado Scholarship</a></td><td><span class="tag tag-scholarship">Scholarship</span></td><td>$1,000 one-time</td><td>Apply to and enroll in a TEACH Colorado partner prep program. Competitive drawing. Can be used for tuition, books, transportation.</td></tr>
+          <tr><td class="prog-name"><a href="https://www.unco.edu/colorado-center-for-rural-education/stipends/student-teaching-stipend.aspx" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Colorado Rural Student Teaching Stipend</a></td><td><span class="tag tag-stipend">Stipend</span></td><td>$4,000 for student teaching semester</td><td>For Relay residents completing their clinical placement in a Colorado rural district. Contact the Colorado Center for Rural Education at UNC.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- CONNECTICUT -->
+  <div class="state-accordion" id="state-connecticut">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Connecticut</h3><span class="relay-location">Relay Connecticut</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://portal.ct.gov/ohe/knowledge-base/articles/for-students/connecticut-student-aid-programs" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Minority Teacher Incentive Program (MTIP)</a></td><td><span class="tag tag-scholarship">Grant + Forgiveness</span></td><td>Grants up to $5,000/yr for 2 yrs + loan reimbursement up to $2,500/yr for 4 yrs</td><td>For African American, Hispanic/Latino, Asian American, or Native American students in CT teacher prep programs, including Alternate Route to Certification. Must be nominated by education dean. Nominations due Oct. 15. Currently the only funded state teacher aid program in CT.</td></tr>
+          <tr><td class="prog-name"><a href="https://connecticut.teach.org/articles/loan-forgiveness-CT" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Alliance District Teacher Loan Subsidy Program</a></td><td><span class="tag tag-loan">Loan Subsidy</span></td><td>Refinance up to $25,000 in private loans at subsidized rate</td><td>For teachers with $5,000+ in private student loans who teach in one of CT&rsquo;s 33 highest-need districts. Not forgiveness&mdash;subsidized interest rate through CHESLA. Available to Relay graduates teaching in eligible districts.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- DELAWARE -->
+  <div class="state-accordion" id="state-delaware">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Delaware</h3><span class="relay-location">Relay Delaware</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://education.delaware.gov/families/college-career-life/college-scholarship-financial-aid/financial-supports-for-delaware-educators/educator-loan-repayment-programs" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">State Educator Loan Repayment Programs</a></td><td><span class="tag tag-forgiveness">Loan Repayment</span></td><td>One-time payment (amount varies)</td><td>For educators with active standard certificate teaching in high-needs DE public schools and/or high-needs subjects (bilingual, ELL, math, science, special ed, world language). Three separate programs administered by DHEO. Available to Relay graduates teaching in Delaware.</td></tr>
+          <tr><td class="prog-name"><a href="https://www.joindelawareschools.org/financial-incentives/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Tuition Reimbursement for Emergency/Limited Certificate Teachers</a></td><td><span class="tag tag-waiver">Reimbursement</span></td><td>Up to 3 credits/term (fall and spring)</td><td>For full-time DE school district or charter school employees teaching on Emergency or Limited Standard Certificate in a critical need area. Coursework must lead to Standard Certification. Relay coursework may qualify if it fulfills certification requirements&mdash;check with your district.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- GEORGIA -->
+  <div class="state-accordion" id="state-georgia">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Georgia</h3><span class="relay-location">Relay Atlanta</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://gadoe.org/policy/teacher-tax-credit/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Teacher Recruitment Tax Credit (HB 32)</a></td><td><span class="tag tag-tax">Tax Credit</span></td><td>$3,000/yr state income tax credit for 5 consecutive years</td><td>For teachers recently hired at one of 100 Participating Schools (rural/low-performing). Must hold valid GA certificate and bachelor&rsquo;s degree. Application opens annually. Available to Relay graduates placed at eligible schools.</td></tr>
+          <tr><td class="prog-name"><a href="https://teachinthepeach.org/live/teacher-tax-credits-grants-loan-forgiveness-and-legislation/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">GaDOE Teacher Endorsement Grants (TLSD)</a></td><td><span class="tag tag-grant">Grant</span></td><td>Covers tuition, fees, and exam costs for endorsement programs</td><td>For current GA public school teachers in approved Teacher/Teacher Leader Endorsement programs in high-need areas. Contact your local grantee (districts, RESAs, higher ed institutions) for availability.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ILLINOIS -->
+  <div class="state-accordion" id="state-illinois">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Illinois</h3><span class="relay-location">Relay Chicago</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://www.isac.org/students/after-college/forgiveness-programs/illinois-teachers-and-child-care-providers-loan-repayment-program.html" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Illinois Teachers Loan Repayment Program</a></td><td><span class="tag tag-forgiveness">Loan Repayment</span></td><td>Additional state repayment on top of federal TLF</td><td>You must first receive Federal Teacher Loan Forgiveness, then apply within 6 months. Supplements the federal TLF amount. Administered by ISAC. Available to Relay graduates who qualify for federal TLF.</td></tr>
+          <tr><td class="prog-name"><a href="https://www.isac.org/students/during-college/types-of-financial-aid/scholarships/TISP.html" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Teachers of Illinois (TI) Scholarship</a></td><td><span class="tag tag-scholarship">Scholarship</span></td><td>Varies (covers tuition and fees)</td><td>New for 2025&ndash;26. For IL residents enrolled in teacher certification programs with 2.5+ GPA, who previously attended IL public schools with 70%+ free/reduced lunch. Must teach in underserved IL schools or converts to loan. <strong>Check with ISAC whether Relay Chicago students are eligible.</strong></td></tr>
+        </tbody>
+      </table>
+      <div class="relay-note" style="margin-top:12px;"><strong>Note:</strong> The Illinois Special Education Teacher Tuition Waiver (SETTW) requires enrollment at an Illinois public university and is <em>not</em> available to Relay students. However, the federal TEACH Grant covers similar ground and IS available at Relay.</div>
+    </div>
+  </div>
+
+  <!-- NEW JERSEY -->
+  <div class="state-accordion" id="state-new-jersey">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>New Jersey</h3><span class="relay-location">Relay Camden &bull; Relay Newark</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://www.hesaa.org/Pages/NJTLRP.aspx" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NJ Teacher Loan Redemption Program (TLRP)</a></td><td><span class="tag tag-forgiveness">Loan Redemption</span></td><td>Up to $5,000/yr for 4 years ($20,000 max)</td><td>For NJ-certified teachers hired on or after Jan. 18, 2022 in high-need fields (math, science, special ed, ESL, CTE) at eligible schools. Must be NJ resident with outstanding student loans. Administered by HESAA. Application typically opens November. Available to Relay graduates teaching in NJ.</td></tr>
+          <tr><td class="prog-name"><a href="https://www.hesaa.org/Pages/LoanRedemptionPrograms.aspx" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NJ Student-Teacher Stipend Pilot Program</a></td><td><span class="tag tag-stipend">Stipend</span></td><td>Varies</td><td>For student teachers in NJ educator preparation programs. Check HESAA for current availability and whether Relay&rsquo;s clinical placements qualify.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- NEW YORK -->
+  <div class="state-accordion" id="state-new-york">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>New York</h3><span class="relay-location">Relay New York</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://hesc.ny.gov/find-aid/nys-grants-scholarships" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYS Teacher Loan Forgiveness Program</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Up to $5,000/yr for 4 years ($20,000 max)</td><td>For NYS residents who earned an undergraduate degree from a NY college/university, are NYS-certified teachers, and serve in hard-to-staff districts or subject shortage areas. Administered by HESC. Competitive; apply annually. Available to Relay graduates who meet the criteria.</td></tr>
+          <tr><td class="prog-name"><a href="http://www.teachnycprograms.net/getpage.php?page_id=79" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYC DOE Jose P. Loan Forgiveness Program</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Up to $24,000 tax-free</td><td>For newly hired NYC Public Schools educators in select pedagogic and clinical roles (especially special education). Hire date must be between Sept. 3 and Nov. 15 of current school year. NYC-specific. Highly relevant to Relay NYC graduates placed in NYCPS.</td></tr>
+          <tr><td class="prog-name"><a href="https://hesc.ny.gov/find-aid/nys-grants-scholarships/tuition-assistance-program-tap" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYS Tuition Assistance Program (TAP)</a></td><td><span class="tag tag-grant">Grant</span></td><td>Up to $5,665/yr</td><td>Need-based. For NYS residents attending participating in-state institutions. Some graduate eligibility criteria apply. Check with HESC and Relay&rsquo;s financial aid office for current TAP eligibility at Relay New York.</td></tr>
+          <tr><td class="prog-name"><a href="https://hesc.ny.gov/find-aid/nys-grants-scholarships" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYS Get on Your Feet Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Up to 2 years of federal loan payments</td><td>For NYS residents earning under $50,000 who earned an undergrad degree from any NY college and are on an income-driven repayment plan. Not teacher-specific but helps early-career Relay graduates manage payments.</td></tr>
+        </tbody>
+      </table>
+      <div class="relay-note" style="margin-top:12px;"><strong>Note:</strong> The Masters in Education Teacher Incentive Scholarship requires enrollment at SUNY or CUNY and is <em>not</em> available to Relay students. The NYS Teacher Loan Forgiveness Program is the primary state option.</div>
+    </div>
+  </div>
+
+  <!-- RHODE ISLAND -->
+  <div class="state-accordion" id="state-rhode-island">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Rhode Island</h3><span class="relay-location">Nearest: Relay Connecticut</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://wavemaker.commerceri.com/information/wavemaker-information/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Wavemaker Fellowship</a></td><td><span class="tag tag-tax">Tax Credit</span></td><td>$1,000&ndash;$6,000/yr for up to 4 years</td><td>Annual refundable tax credit for graduates working full-time in RI in qualifying fields&mdash;K&ndash;12 teachers explicitly eligible as of 2025. Must have student loan repayment expenses and a degree from an accredited institution. Administered by RI Commerce. Available to Relay graduates teaching in Rhode Island.</td></tr>
+          <tr><td class="prog-name"><a href="https://nebhe.org/tuitionbreak/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NEBHE Tuition Break</a></td><td><span class="tag tag-waiver">Tuition Discount</span></td><td>Avg. ~$8,600/yr discount</td><td>For RI residents enrolling in approved programs not offered by RI public colleges at out-of-state New England public institutions. Not directly applicable to Relay, but useful context if considering additional coursework.</td></tr>
+        </tbody>
+      </table>
+      <div class="relay-note" style="margin-top:12px;"><strong>Note:</strong> The Providence Educator of Color Loan Forgiveness program (up to $25,000 over 3 years) is currently subject to a legal challenge (DOJ suit filed Sept. 2025). Check with Providence Public Schools for current status.</div>
+    </div>
+  </div>
+
+  <!-- TENNESSEE -->
+  <div class="state-accordion" id="state-tennessee">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Tennessee</h3><span class="relay-location">Relay Memphis &bull; Relay Nashville</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://www.tn.gov/collegepays/money-for-college/loan-forgiveness-programs/tennessee-math-science-teachers-loan-forgiveness-program.html" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">TN Math &amp; Science Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Up to $10,000</td><td>For current TN public school teachers seeking an advanced degree or certification in math or science. Must teach 2 years per year of funding. Available to Relay graduates pursuing additional math/science qualifications.</td></tr>
+        </tbody>
+      </table>
+      <div class="relay-note" style="margin-top:12px;"><strong>Note:</strong> The Tennessee Future Teacher Scholarship, Tennessee Teaching Scholars Program, and Minority Teaching Fellows Program are not available to Relay students. These programs define eligibility as &ldquo;college juniors, seniors, or post-baccalaureate candidates,&rdquo; a category that does not include graduate students in master&rsquo;s degree programs. The TN Math &amp; Science Teacher Loan Forgiveness remains available to Relay graduates who teach in Tennessee and pursue math or science qualifications. Federal programs (TEACH Grant, AmeriCorps, PSLF, TLF) are the primary funding sources for Relay Tennessee students.</div>
+  </div>
+
+  <!-- TEXAS -->
+  <div class="state-accordion" id="state-texas">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Texas</h3><span class="relay-location">Relay Houston &bull; Relay Dallas-Fort Worth &bull; Relay San Antonio</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://www.hhloans.com/teach-for-texas-loan-repayment-assistance-program/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Teach for Texas Loan Repayment Assistance (TFTLRAP)</a></td><td><span class="tag tag-forgiveness">Loan Repayment</span></td><td>Up to $7,000/yr (2025&ndash;26); max 5 years</td><td>For TX-certified educators teaching full-time in critical shortage fields (bilingual/ESL, CTE, technology/CS, special ed for 2024&ndash;25) at TX public schools. Application deadline July 31. Administered by TX Higher Education Coordinating Board. Available to Relay graduates teaching in Texas. Amount reduced from prior years due to high demand.</td></tr>
+          <tr><td class="prog-name"><a href="https://tea.texas.gov/texas-educators/educator-initiatives-and-performance/teacher-incentive-allotment" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Teacher Incentive Allotment (TIA)</a></td><td><span class="tag tag-stipend">Salary Supplement</span></td><td>Varies by district and designation</td><td>Not financial aid for preparation, but a significant post-certification salary boost. Designated as Recognized, Exemplary, or Master teacher. Full supplement requires teaching at high-needs campus. Relevant for Relay graduates planning long-term careers in TX.</td></tr>
+          <tr><td class="prog-name"><a href="https://tea.texas.gov/texas-educators/certification/initial-certification/financial-resources-for-teacher-training" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Veterans Certification Test Reimbursement</a></td><td><span class="tag tag-waiver">Reimbursement</span></td><td>Certification test fees</td><td>For veterans and eligible persons under GI Bill. Approved by TX Workforce Commission for SBEC certification tests. Relevant for Relay students who are veterans.</td></tr>
+          <tr><td class="prog-name"><a href="https://tea.texas.gov/texas-educators/educator-initiatives-and-performance" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">District Grow-Your-Own Programs</a></td><td><span class="tag tag-waiver">Varies</span></td><td>Varies by district</td><td>Some TX school districts partner with Relay and offer tuition support for employees pursuing certification. Ask your employing district&rsquo;s HR department about available benefits.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- WASHINGTON DC -->
+  <div class="state-accordion" id="state-dc">
+    <div class="state-accordion-header" onclick="this.parentElement.classList.toggle('open')">
+      <div><h3>Washington, DC</h3><span class="relay-location">Relay Washington DC</span></div>
+      <span class="chevron">&#9660;</span>
+    </div>
+    <div class="state-accordion-body">
+      <table class="quick-ref">
+        <thead><tr><th>Program</th><th>Type</th><th>Amount</th><th>Key Details for Relay Students</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name"><a href="https://osse.dc.gov/dctag" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">DC Tuition Assistance Grant (DCTAG)</a></td><td><span class="tag tag-grant">Grant</span></td><td>Up to $10,000/yr (public); $2,500/yr (private/HBCU)</td><td>For DC residents attending undergraduate programs. Covers the in-state/out-of-state tuition difference at public colleges. <strong>Undergraduate only</strong>&mdash;not available for Relay&rsquo;s graduate programs, but relevant if you have an undergraduate-age family member or are considering prerequisites.</td></tr>
+          <tr><td class="prog-name"><a href="https://dchr.dc.gov/page/public-service-loan-forgiveness-0" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">PSLF via DC Government Employment</a></td><td><span class="tag tag-forgiveness">Forgiveness</span></td><td>Full remaining balance after 120 payments</td><td>DC government employees (including DCPS teachers) are qualifying employers for PSLF. The DC HR office will complete PSLF forms for current/former employees. Highly relevant for Relay DC graduates teaching in DCPS.</td></tr>
+        </tbody>
+      </table>
+      <div class="relay-note" style="margin-top:12px;"><strong>Note:</strong> DC has fewer state-level teacher preparation aid programs than other jurisdictions. Federal programs (TEACH Grant, PSLF, TLF) are the primary sources of support for Relay Washington DC students. Some Relay DC partners may offer employer tuition assistance&mdash;ask your school&rsquo;s HR department.</div>
+    </div>
+  </div>
+</section>
+
+<!-- STACKING STRATEGIES -->
+<section id="stacking">
+  <h2>Stacking Programs: A Smart Approach</h2>
+  <p>The most effective way to reduce costs is to combine multiple programs. Here is an example pathway for a Relay student:</p>
+
+  <div class="stack-diagram">
+    <div class="stack-step">
+      <span class="step-num">1</span>
+      <div class="step-text"><strong>During enrollment:</strong> TEACH Grant ($4,000/yr) + Segal AmeriCorps Education Awards via Relay&rsquo;s program (~$14,790 over 2 years) + Employer tuition assistance (if your district offers it) + applicable state grants</div>
+    </div>
+    <div class="stack-connector">&darr;</div>
+    <div class="stack-step">
+      <span class="step-num">2</span>
+      <div class="step-text"><strong>Years 1&ndash;5 teaching:</strong> Apply for <a href="https://studentaid.gov/articles/teacher-loan-forgiveness-options/#teachers-and-tlf" target="_blank" rel="noopener" style="color:var(--pacific);">TLF forbearance</a> to pause loan payments while you teach. After 5 consecutive years at a TCLI school, apply for Teacher Loan Forgiveness ($5,000&ndash;$17,500)</div>
+    </div>
+    <div class="stack-connector">&darr;</div>
+    <div class="stack-step">
+      <span class="step-num">3</span>
+      <div class="step-text"><strong>Years 6&ndash;10 teaching:</strong> Continue IDR payments at a qualifying employer. After 120 total payments, apply for PSLF (remaining balance forgiven, tax-free)</div>
+    </div>
+    <div class="stack-connector">&darr;</div>
+    <div class="stack-step">
+      <span class="step-num">4</span>
+      <div class="step-text"><strong>Throughout:</strong> Apply for any applicable state programs (loan repayment, tax credits) to further reduce your balance while you work toward PSLF</div>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>Key stacking rules:</strong> Total aid cannot exceed your cost of attendance. You cannot use the same teaching service years for both TLF and PSLF (use years 1&ndash;5 for TLF, then years 6&ndash;10+ for PSLF). Always verify that specific programs allow concurrent receipt&mdash;some state programs prohibit overlap with certain federal programs.
+  </div>
+</section>
+
+<!-- STUDENT SCENARIOS -->
+<section id="scenarios">
+  <h2>See It in Action: Student Scenarios</h2>
+  <p>Every Relay student&rsquo;s financial picture is different, but the programs in this guide can be combined in powerful ways. Below are examples of how real funding stacks might work for students in different situations. These scenarios illustrate that with the right planning, out-of-pocket costs can be significantly reduced&mdash;and in some cases, nearly eliminated.</p>
+
+  <div class="notice">
+    <strong>A note on these examples:</strong> The dollar amounts shown use estimated tuition figures and are meant to illustrate the <em>types</em> of programs available, not guaranteed outcomes. Actual amounts depend on your specific program, credit load, eligibility, and award cycles. Work with your Relay financial aid contact to build your personal funding plan.
+  </div>
+
+  <!-- SCENARIO 1: Connecticut -->
+  <div class="program-card" style="margin-bottom:20px; border-left: 4px solid var(--crimson);">
+    <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')" style="background:linear-gradient(135deg, #fafafa, var(--fog));">
+      <h4 style="font-size:17px;">Marisol &mdash; MAT in Elementary Education + Special Education Certification, Connecticut</h4>
+      <span class="toggle-icon">&#9660;</span>
+    </div>
+    <div class="program-card-body">
+      <div style="background:var(--fog);border-radius:8px;padding:16px;margin-bottom:16px;">
+        <p style="margin-bottom:8px;"><strong>Profile:</strong> Marisol identifies as Latina and is pursuing her Master of Arts in Teaching in Elementary Education at Relay Connecticut, with a pathway to both general education and special education certification. She is employed as a paraprofessional at a partner school in Hartford while enrolled.</p>
+        <p style="margin-bottom:0;"><strong>Estimated total program cost:</strong> <span style="color:var(--crimson);font-weight:700;">[TOTAL TUITION]</span></p>
+      </div>
+      <table class="quick-ref" style="margin:0;">
+        <thead><tr><th>Funding Source</th><th>Type</th><th>Estimated Value</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name">Federal TEACH Grant</td><td><span class="tag tag-grant">Grant</span></td><td>Up to $8,000 (over 2 years)</td><td>During enrollment</td></tr>
+          <tr><td class="prog-name">CT Minority Teacher Incentive Program (MTIP)</td><td><span class="tag tag-scholarship">Grant</span></td><td>Up to $5,000/yr &times; 2 years = $10,000</td><td>During enrollment</td></tr>
+          <tr><td class="prog-name">Segal AmeriCorps Education Awards (via Relay&rsquo;s AmeriCorps program)</td><td><span class="tag tag-grant">Award</span></td><td>Up to ~$14,790 (2 awards over 2 years)</td><td>During or after enrollment</td></tr>
+          <tr><td class="prog-name">Employer tuition assistance (Hartford district)</td><td><span class="tag tag-waiver">Employer</span></td><td>Up to $5,250/yr tax-free</td><td>During enrollment</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name">CT MTIP Loan Reimbursement</td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $2,500/yr &times; 4 years = $10,000</td><td>After graduation (while teaching in CT)</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/teacher" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Federal Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $17,500 (special education)</td><td>After 5 years teaching</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#E8F5E9;border-radius:8px;padding:16px;margin-top:16px;">
+        <p style="margin-bottom:6px;"><strong>Total estimated funding during enrollment:</strong> <span style="font-size:18px;font-weight:700;color:#2E7D32;">Up to ~$43,290</span></p>
+        <p style="margin-bottom:6px;"><strong>Estimated out-of-pocket cost:</strong> <span style="font-size:18px;font-weight:700;color:var(--prussian);">[REMAINING AMOUNT]</span></p>
+        <p style="margin-bottom:0;font-size:13px;color:var(--dark-gray);"><strong>After graduation:</strong> Marisol can apply for TLF forbearance to pause her loan payments while she teaches. She also qualifies for MTIP loan reimbursement (up to $2,500/yr for 4 years = $10,000) and, after 5 years teaching, federal Teacher Loan Forgiveness (up to $17,500 for special education) and PSLF.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO 2: Texas Residency -->
+  <div class="program-card" style="margin-bottom:20px; border-left: 4px solid var(--pacific);">
+    <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')" style="background:linear-gradient(135deg, #fafafa, var(--fog));">
+      <h4 style="font-size:17px;">DeAndre &mdash; MAT via Relay Teaching Residency, Texas (Houston)</h4>
+      <span class="toggle-icon">&#9660;</span>
+    </div>
+    <div class="program-card-body">
+      <div style="background:var(--fog);border-radius:8px;padding:16px;margin-bottom:16px;">
+        <p style="margin-bottom:8px;"><strong>Profile:</strong> DeAndre is a career changer entering the Relay Teaching Residency in Houston. In year one, he is embedded in a Resident Advisor&rsquo;s classroom at a partner school district. He enrolls in Relay&rsquo;s AmeriCorps program during his residency.</p>
+        <p style="margin-bottom:0;"><strong>Estimated total program cost:</strong> <span style="color:var(--crimson);font-weight:700;">[TOTAL TUITION]</span></p>
+      </div>
+      <table class="quick-ref" style="margin:0;">
+        <thead><tr><th>Funding Source</th><th>Type</th><th>Estimated Value</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name">Federal TEACH Grant</td><td><span class="tag tag-grant">Grant</span></td><td>Up to $8,000 (over 2 years)</td><td>During enrollment</td></tr>
+          <tr><td class="prog-name">Segal AmeriCorps Education Awards (via Relay&rsquo;s AmeriCorps program)</td><td><span class="tag tag-grant">Award</span></td><td>Up to ~$14,790 (2 awards over 2 years)</td><td>During or after enrollment</td></tr>
+          <tr><td class="prog-name">District tuition support (Grow-Your-Own)</td><td><span class="tag tag-waiver">Employer</span></td><td>Varies&mdash;some Houston-area districts cover partial tuition</td><td>During enrollment</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://www.hhloans.com/teach-for-texas-loan-repayment-assistance-program/" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Teach for Texas Loan Repayment</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $7,000/yr &times; 5 years = $35,000</td><td>After graduation (critical shortage field)</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/teacher" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Federal Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $17,500</td><td>After 5 years teaching</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#E8F5E9;border-radius:8px;padding:16px;margin-top:16px;">
+        <p style="margin-bottom:6px;"><strong>Total estimated funding during enrollment:</strong> <span style="font-size:18px;font-weight:700;color:#2E7D32;">Up to ~$22,790+ (plus potential district tuition support)</span></p>
+        <p style="margin-bottom:6px;"><strong>Estimated out-of-pocket cost:</strong> <span style="font-size:18px;font-weight:700;color:var(--prussian);">[REMAINING AMOUNT]</span></p>
+        <p style="margin-bottom:0;font-size:13px;color:var(--dark-gray);"><strong>After graduation:</strong> DeAndre can apply for TLF forbearance to pause his loan payments while he teaches. He can pursue Teach for Texas Loan Repayment (up to $7,000/yr for 5 years = $35,000) if he teaches in a critical shortage field, federal Teacher Loan Forgiveness ($5,000&ndash;$17,500), and PSLF for any remaining balance.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO 3: New York City -->
+  <div class="program-card" style="margin-bottom:20px; border-left: 4px solid var(--orange);">
+    <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')" style="background:linear-gradient(135deg, #fafafa, var(--fog));">
+      <h4 style="font-size:17px;">Priya &mdash; MAT in Secondary Mathematics, New York City</h4>
+      <span class="toggle-icon">&#9660;</span>
+    </div>
+    <div class="program-card-body">
+      <div style="background:var(--fog);border-radius:8px;padding:16px;margin-bottom:16px;">
+        <p style="margin-bottom:8px;"><strong>Profile:</strong> Priya completed her undergraduate degree at a SUNY school and is now enrolled in the MAT program at Relay New York, teaching secondary math at a NYC public school on a Transitional B certificate.</p>
+        <p style="margin-bottom:0;"><strong>Estimated total program cost:</strong> <span style="color:var(--crimson);font-weight:700;">[TOTAL TUITION]</span></p>
+      </div>
+      <table class="quick-ref" style="margin:0;">
+        <thead><tr><th>Funding Source</th><th>Type</th><th>Estimated Value</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name">Federal TEACH Grant</td><td><span class="tag tag-grant">Grant</span></td><td>Up to $8,000 (over 2 years)</td><td>During enrollment</td></tr>
+          <tr><td class="prog-name">Segal AmeriCorps Education Awards (via Relay&rsquo;s AmeriCorps program)</td><td><span class="tag tag-grant">Award</span></td><td>Up to ~$14,790 (2 awards over 2 years)</td><td>During or after enrollment</td></tr>
+          <tr><td class="prog-name">Lifetime Learning Credit</td><td><span class="tag tag-tax">Tax Credit</span></td><td>Up to $2,000/yr &times; 2 years = $4,000</td><td>Tax filing</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="http://www.teachnycprograms.net/getpage.php?page_id=79" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYC DOE Jose P. Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $24,000</td><td>After hire at NYCPS</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://hesc.ny.gov/find-aid/nys-grants-scholarships" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">NYS Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $5,000/yr &times; 4 years = $20,000</td><td>After graduation (shortage area)</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/teacher" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Federal Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $17,500 (math)</td><td>After 5 years teaching</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#E8F5E9;border-radius:8px;padding:16px;margin-top:16px;">
+        <p style="margin-bottom:6px;"><strong>Total estimated funding during enrollment:</strong> <span style="font-size:18px;font-weight:700;color:#2E7D32;">Up to ~$26,790</span></p>
+        <p style="margin-bottom:6px;"><strong>Total post-graduation forgiveness potential:</strong> <span style="font-size:18px;font-weight:700;color:#1565C0;">Up to ~$61,500</span></p>
+        <p style="margin-bottom:6px;"><strong>Estimated out-of-pocket cost:</strong> <span style="font-size:18px;font-weight:700;color:var(--prussian);">[REMAINING AMOUNT]</span></p>
+        <p style="margin-bottom:0;font-size:13px;color:var(--dark-gray);"><strong>After graduation:</strong> Priya can apply for TLF forbearance to pause her loan payments while she teaches. As a NYCPS math teacher, she can apply for the Jose P. Loan Forgiveness Program (up to $24,000), the NYS Teacher Loan Forgiveness Program (up to $20,000), and federal Teacher Loan Forgiveness ($17,500 for math). Between these programs, her total post-graduation forgiveness potential exceeds $60,000. With PSLF as a backstop after 10 years, any remaining balance would be wiped clean.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENARIO 4: Tennessee -->
+  <div class="program-card" style="margin-bottom:20px; border-left: 4px solid var(--sea-foam);">
+    <div class="program-card-header" onclick="this.parentElement.classList.toggle('open')" style="background:linear-gradient(135deg, #fafafa, var(--fog));">
+      <h4 style="font-size:17px;">Marcus &mdash; MAT in Elementary Education, Tennessee (Nashville)</h4>
+      <span class="toggle-icon">&#9660;</span>
+    </div>
+    <div class="program-card-body">
+      <div style="background:var(--fog);border-radius:8px;padding:16px;margin-bottom:16px;">
+        <p style="margin-bottom:8px;"><strong>Profile:</strong> Marcus is a Tennessee resident and identifies as Black. He is pursuing his MAT at Relay Nashville while teaching full-time at a Title I elementary school in Metro Nashville Public Schools. He has strong academic credentials (3.0+ GPA) and is enrolled in Relay&rsquo;s AmeriCorps program.</p>
+        <p style="margin-bottom:0;"><strong>Estimated total program cost:</strong> <span style="color:var(--crimson);font-weight:700;">[TOTAL TUITION]</span></p>
+      </div>
+      <table class="quick-ref" style="margin:0;">
+        <thead><tr><th>Funding Source</th><th>Type</th><th>Estimated Value</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td class="prog-name">Federal TEACH Grant</td><td><span class="tag tag-grant">Grant</span></td><td>Up to $8,000 (over 2 years)</td><td>During enrollment</td></tr>
+          <tr><td class="prog-name">Segal AmeriCorps Education Awards (via Relay&rsquo;s AmeriCorps program)</td><td><span class="tag tag-grant">Award</span></td><td>Up to ~$14,790 (2 awards over 2 years)</td><td>During or after enrollment</td></tr>
+          <tr><td class="prog-name">Lifetime Learning Credit</td><td><span class="tag tag-tax">Tax Credit</span></td><td>Up to $2,000/yr &times; 2 = $4,000</td><td>Tax filing</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://studentaid.gov/manage-loans/forgiveness-cancellation/teacher" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">Federal Teacher Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $17,500</td><td>After 5 years teaching</td></tr>
+          <tr style="background:#FFF3E0;"><td class="prog-name"><a href="https://www.tn.gov/collegepays/money-for-college/loan-forgiveness-programs/tennessee-math-science-teachers-loan-forgiveness-program.html" target="_blank" rel="noopener" style="color:var(--prussian);border-bottom:1px dashed var(--pacific);">TN Math &amp; Science Loan Forgiveness</a></td><td><span class="tag tag-forgiveness">Post-Grad</span></td><td>Up to $10,000</td><td>If pursuing math/science endorsement</td></tr>
+        </tbody>
+      </table>
+      <div style="background:#E8F5E9;border-radius:8px;padding:16px;margin-top:16px;">
+        <p style="margin-bottom:6px;"><strong>Total estimated funding during enrollment:</strong> <span style="font-size:18px;font-weight:700;color:#2E7D32;">Up to ~$26,790</span></p>
+        <p style="margin-bottom:6px;"><strong>Estimated out-of-pocket cost:</strong> <span style="font-size:18px;font-weight:700;color:var(--prussian);">[REMAINING AMOUNT]</span></p>
+        <p style="margin-bottom:0;font-size:13px;color:var(--dark-gray);"><strong>After graduation:</strong> Marcus can apply for TLF forbearance to pause his loan payments while he teaches. He can pursue federal Teacher Loan Forgiveness ($5,000&ndash;$17,500 after 5 years) and PSLF. If he later pursues a math or science endorsement, the TN Math &amp; Science Teacher Loan Forgiveness offers an additional $10,000. Tennessee has fewer state-level programs for Relay students than some other states, making federal programs and AmeriCorps especially important here.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:linear-gradient(135deg, var(--prussian), var(--pacific));border-radius:10px;padding:24px 28px;color:var(--white);margin-top:28px;">
+    <p style="font-size:17px;font-weight:700;margin-bottom:8px;">The bottom line: students who plan ahead rarely pay full price.</p>
+    <p style="font-size:14px;opacity:0.9;margin-bottom:0;">Between federal grants, AmeriCorps awards through Relay&rsquo;s own program, state-specific aid, employer tuition assistance, and post-graduation loan forgiveness, the actual amount a Relay student pays out of their own bank account is often a fraction of the listed tuition&mdash;and in many cases, approaches zero. Your Relay admissions and student services team can help you map out your personal funding plan before you enroll.</p>
+  </div>
+</section>
+
+<!-- ADDITIONAL RESOURCES -->
+<section id="additional">
+  <h2>Additional Resources</h2>
+
+  <h3>Talk to Relay&rsquo;s Financial Aid Team</h3>
+  <p>Your first stop should always be Relay&rsquo;s Student Affairs and Student Services (SASS) team. They can help you understand your specific financial aid package, confirm program eligibility, and connect you with location-specific resources. Contact your Relay location directly or email for general inquiries.</p>
+
+  <h3>National Scholarships for Aspiring Teachers</h3>
+  <p>Several national organizations offer scholarships for aspiring or current teachers: the NEA Foundation, Phi Delta Kappa, the James Madison Memorial Fellowship (secondary social studies), the Knowles Science Teaching Foundation (STEM teachers&mdash;up to $10,000/year for 2 years plus stipend), and professional associations in your subject area (NCTM, NCTE, NSTA, etc.).</p>
+
+  <h3>Key Websites</h3>
+  <p><strong><a href="https://studentaid.gov" target="_blank" rel="noopener" style="color:var(--pacific);">StudentAid.gov</a></strong> &mdash; Federal student aid information, FAFSA, loan servicer lookup, PSLF tools<br>
+  <strong>TEACH Grant info:</strong> <a href="https://studentaid.gov/understand-aid/types/grants/teach" target="_blank" rel="noopener" style="color:var(--pacific);">studentaid.gov/understand-aid/types/grants/teach</a><br>
+  <strong>TCLI Directory:</strong> <a href="https://studentaid.gov/tcli" target="_blank" rel="noopener" style="color:var(--pacific);">studentaid.gov/tcli</a> (verify your school for Teacher Loan Forgiveness)<br>
+  <strong>PSLF Help Tool:</strong> <a href="https://studentaid.gov/pslf" target="_blank" rel="noopener" style="color:var(--pacific);">studentaid.gov/pslf</a><br>
+  <strong>Relay financial aid:</strong> Contact your Relay location&rsquo;s admissions or student services team</p>
+</section>
+
+<!-- DISCLAIMER -->
+<section id="disclaimer">
+  <h2>Disclaimer &amp; Verification</h2>
+  <div class="disclaimer">
+    <p>This document was compiled in May 2026 using publicly available information from federal and state government websites, higher education institutions, and financial aid organizations. It is intended as a starting reference for Relay Graduate School of Education students, not as financial or legal advice.</p>
+    <p style="margin-top:10px;">Program details&mdash;including availability, eligibility, amounts, deadlines, and service requirements&mdash;are subject to change without notice. Some programs listed may have been defunded, suspended, or restructured since compilation. <strong>Several federal programs are undergoing significant regulatory changes in 2025&ndash;2026.</strong></p>
+    <p style="margin-top:10px;">Before making any financial decision, contact the administering agency directly and consult with Relay&rsquo;s financial aid office to verify current status and your individual eligibility.</p>
+  </div>
+</section>
+
+</div><!-- /content-area -->
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Relay Graduate School of Education</strong> &bull; Financial Aid, Loan Forgiveness &amp; Tuition Offset Guide</p>
+  <p>Compiled May 2026 &bull; AI-generated resource &mdash; verify all details with program administrators</p>
+  <p style="margin-top:10px;">To save as PDF: Use your browser&rsquo;s Print function (Ctrl+P / Cmd+P) and select &ldquo;Save as PDF&rdquo; as the destination.</p>
+</div>
+
+</div><!-- /main-content -->
+
+<script>
+// Close sidebar on mobile when a link is clicked
+document.querySelectorAll('.sidebar nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      document.getElementById('sidebar').classList.remove('open');
+    }
+  });
+});
+
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id], div.state-accordion[id], div.hero[id]');
+const navLinks = document.querySelectorAll('.sidebar nav a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    if (window.scrollY >= sectionTop) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
